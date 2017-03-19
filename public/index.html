@@ -1,0 +1,75 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+ <script src="controllers/controller.js"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<title>Hospital Management System</title>
+</head>
+<body>
+	
+	<div class="container" ng-controller = "AppCtrl">
+		<h1> Family Health Details</h1> 
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Family ID </th>
+					<th>Member Name</th>
+					<th>Contact Number</th>
+					<th>Email</th>
+					<th>Height</th>
+					<th>Weight</th>
+					<th>Blood Group</th>
+					<th>Blood Pressure</th>
+					<th>Consulting Doctor</th>
+					<th>Treatment taken</th>
+					<th>Previous Visit</th>
+					<th>Additional Information</th>	
+					<th>Action</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td><input class="form-control" ng-model ="patient.familyId"></td>
+				<td><input class="form-control" ng-model ="patient.memberName"></td>
+				<td><input class="form-control" ng-model ="patient.contactNumber"></td>
+				<td><input class="form-control" ng-model ="patient.email"></td>
+				<td><input class="form-control" ng-model ="patient.height"></td>
+				<td><input class="form-control" ng-model ="patient.weight"></td>
+				<td><input class="form-control" ng-model ="patient.bloodGroup"></td>
+				<td><input class="form-control" ng-model ="patient.bloodPressure"></td>
+				<td><input class="form-control" ng-model ="patient.consultingDoctor"></td>
+				<td><input class="form-control" ng-model ="patient.treatmentTaken"></td>
+				<td><input class="form-control" ng-model ="patient.previousVisit"></td>
+				<td><input class="form-control" ng-model ="patient.additionalInformation"></td>
+				<td><button type="button" class="btn btn-primary" ng-click="addPatient()">Add</button></td>
+				<td><button type="button" class="btn btn-info" ng-click="update()">Update</button></td>
+			</tr>
+				<tr ng-repeat='patient in patientlist'>
+					<td>{{patient.familyId}}</td>
+					<td> {{patient.memberName}} </td>
+					<td>{{patient.contactNumber}}</td>
+					<td>{{patient.email}}</td>
+					<td>{{patient.height}}</td>
+					<td>{{patient.weight}}</td>
+					<td>{{patient.bloodGroup}}</td>
+					<td>{{patient.bloodPressure}}</td>
+					<td>{{patient.consultingDoctor}}</td>
+					<td>{{patient.treatmentTaken}}</td>
+					<td>{{patient.previousVisit}}</td>
+					<td>{{patient.additionalInformation}}</td>	
+					<td><button class="btn btn-danger" ng-click="remove(patient._id)">Delete</button></td>
+					<td><button class="btn btn-warning" ng-click="edit(patient._id)">Edit</button></td>					
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+	</body>
+</html>
